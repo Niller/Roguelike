@@ -39,6 +39,10 @@ namespace Assets.Scripts.Systems
             instance.transform.localScale = new Vector3(sizeX, currentScale.y, sizeY);
             instance.transform.position = new Vector3(-cellSize/2f, 0, -cellSize/2f);
 
+            var arenaEntity = _context.CreateEntity();
+            var rectSize = new Vector2(arena.Size.x * cellSize, arena.Size.y * cellSize);
+            arenaEntity.AddArena(arena, new Rect(-rectSize/2f - new Vector2(cellSize/2f, cellSize/2f), rectSize));
+
             for (var i = 0; i < arena.Cells.Length; i++)
             {
                 var cell = arena.Cells[i];
@@ -62,8 +66,9 @@ namespace Assets.Scripts.Systems
             player.AddViewSource(ViewType.Player);
             player.AddPosition(Vector2.zero);
             player.AddRotation(0);
-            player.isSyncView = true;
-            player.AddMovement(0.07f, false);
+            player.isSyncModelPosition = true;
+            player.isSyncViewRotation = true;
+            player.AddMovement(2f, false);
             player.AddDirection(Vector2.zero);
             player.isPlayer = true;
         }

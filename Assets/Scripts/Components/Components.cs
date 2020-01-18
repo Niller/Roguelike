@@ -1,4 +1,5 @@
-﻿using Client.Configs.View;
+﻿using Assets.Scripts.Configs.Arena;
+using Client.Configs.View;
 using Entitas;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
@@ -23,7 +24,17 @@ public class RotationComponent : IComponent
     public float Value;
 }
 
-public class SyncViewComponent : IComponent
+public class SyncViewPositionComponent : IComponent
+{
+
+}
+
+public class SyncViewRotationComponent : IComponent
+{
+
+}
+
+public class SyncModelPositionComponent : IComponent
 {
 
 }
@@ -32,6 +43,12 @@ public class MovementComponent : IComponent
 {
     public float Speed;
     public bool Move;
+}
+
+public class ArenaComponent : IComponent
+{
+    public ArenaData ArenaData;
+    public Rect Rect;
 }
 
 public class DirectionComponent : IComponent

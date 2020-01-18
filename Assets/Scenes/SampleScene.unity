@@ -449,7 +449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 834590087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5dbc3fb41740841bb48e7e875b94cb, type: 3}
+  m_Script: {fileID: 11500000, guid: a8063b277e7c6a645bf3daf58da0139d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &834590089
@@ -551,6 +551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043275473429100190, guid: 6841c65876207c44e890fee6745da1bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6841c65876207c44e890fee6745da1bc, type: 3}

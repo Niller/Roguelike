@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly SyncViewComponent syncViewComponent = new SyncViewComponent();
+    static readonly SyncViewPositionComponent syncViewPositionComponent = new SyncViewPositionComponent();
 
-    public bool isSyncView {
-        get { return HasComponent(GameComponentsLookup.SyncView); }
+    public bool isSyncViewPosition {
+        get { return HasComponent(GameComponentsLookup.SyncViewPosition); }
         set {
-            if (value != isSyncView) {
-                var index = GameComponentsLookup.SyncView;
+            if (value != isSyncViewPosition) {
+                var index = GameComponentsLookup.SyncViewPosition;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : syncViewComponent;
+                            : syncViewPositionComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherSyncView;
+    static Entitas.IMatcher<GameEntity> _matcherSyncViewPosition;
 
-    public static Entitas.IMatcher<GameEntity> SyncView {
+    public static Entitas.IMatcher<GameEntity> SyncViewPosition {
         get {
-            if (_matcherSyncView == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.SyncView);
+            if (_matcherSyncViewPosition == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.SyncViewPosition);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherSyncView = matcher;
+                _matcherSyncViewPosition = matcher;
             }
 
-            return _matcherSyncView;
+            return _matcherSyncViewPosition;
         }
     }
 }

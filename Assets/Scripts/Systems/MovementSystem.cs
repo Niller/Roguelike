@@ -1,4 +1,7 @@
-﻿using Entitas;
+﻿using System.Numerics;
+using Entitas;
+using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Assets.Scripts.Systems
 {
@@ -17,13 +20,25 @@ namespace Assets.Scripts.Systems
             {
                 if (!entity.movement.Move)
                 {
+                    entity.view.Value.GetComponent<Rigidbody>().velocity = Vector3.zero;
                     continue;
                 }
 
-                if (entity.hasDirection)
+                if (!entity.hasDirection)
                 {
-                    var offset = entity.direction.Value * entity.movement.Speed;
-                    entity.position.Value += offset;
+                    continue;
+                }
+
+                var offset = entity.direction.Value * entity.movement.Speed;
+                var newPosition = entity.position.Value + offset;
+                if (!entity.isSyncModelPosition)
+                {
+                    entity.position.Value = newPosition;
+                }
+                else
+                {
+                    //entity.view.Value.GetComponent<Rigidbody>().AddForce(new Vector3(newPosition.x, 0, newPosition.y));
+                    entity.view.Value.GetComponent<Rigidbody>().velocity = new Vector3(offset.x, 0, offset.y);
                 }
 
             }
