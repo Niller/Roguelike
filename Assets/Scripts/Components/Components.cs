@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Client.Configs.View;
+﻿using Client.Configs.View;
 using Entitas;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
@@ -45,7 +44,3 @@ public class PlayerComponent : IComponent
 
 }
 
-public class TestComponent : IComponent
-{
-    public int X;
-}

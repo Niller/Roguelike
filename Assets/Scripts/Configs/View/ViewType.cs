@@ -2,6 +2,8 @@
 {
     public enum ViewType
     {
-        Player
+        Player,
+        Map,
+        Obstacle
     }
 }

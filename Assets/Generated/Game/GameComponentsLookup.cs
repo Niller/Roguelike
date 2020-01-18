@@ -14,11 +14,10 @@ public static class GameComponentsLookup {
     public const int Position = 3;
     public const int Rotation = 4;
     public const int SyncView = 5;
-    public const int Test = 6;
-    public const int View = 7;
-    public const int ViewSource = 8;
+    public const int View = 6;
+    public const int ViewSource = 7;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "Direction",
@@ -27,7 +26,6 @@ public static class GameComponentsLookup {
         "Position",
         "Rotation",
         "SyncView",
-        "Test",
         "View",
         "ViewSource"
     };
@@ -39,7 +37,6 @@ public static class GameComponentsLookup {
         typeof(PositionComponent),
         typeof(RotationComponent),
         typeof(SyncViewComponent),
-        typeof(TestComponent),
         typeof(ViewComponent),
         typeof(ViewSourceComponent)
     };
