@@ -17,7 +17,7 @@ MonoBehaviour:
   - Size: {x: 11, y: 25}
     Cells:
     - Type: 2
-    - Type: 0
+    - Type: 2
     - Type: 0
     - Type: 0
     - Type: 0
