@@ -51,6 +51,12 @@ namespace Assets.Scripts.Systems
                     instance.transform.rotation = Quaternion.Euler(0, entity.rotation.Value, 0);
                 }
 
+                var rigidBody = instance.GetComponent<Rigidbody>();
+                if (rigidBody != null) 
+                {
+                    entity.AddRigidbody(rigidBody);
+                }
+
                 entity.AddView(instance);
             }
         }

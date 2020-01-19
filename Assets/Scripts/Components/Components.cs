@@ -9,6 +9,11 @@ public class ViewComponent : IComponent
     public GameObject Value;
 }
 
+public class RigidbodyComponent : IComponent
+{
+    public Rigidbody Value;
+}
+
 public class ViewSourceComponent : IComponent
 {
     public ViewType ViewType;
@@ -49,6 +54,7 @@ public class ArenaComponent : IComponent
 {
     public ArenaData ArenaData;
     public Rect Rect;
+    public float CellSize;
 }
 
 public class DirectionComponent : IComponent
@@ -59,5 +65,11 @@ public class DirectionComponent : IComponent
 public class PlayerComponent : IComponent
 {
 
+}
+
+public class CameraComponent : IComponent
+{
+
+    public Camera Camera;
 }
 

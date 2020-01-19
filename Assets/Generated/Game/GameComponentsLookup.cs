@@ -9,25 +9,29 @@
 public static class GameComponentsLookup {
 
     public const int Arena = 0;
-    public const int Direction = 1;
-    public const int Movement = 2;
-    public const int Player = 3;
-    public const int Position = 4;
-    public const int Rotation = 5;
-    public const int SyncModelPosition = 6;
-    public const int SyncViewPosition = 7;
-    public const int SyncViewRotation = 8;
-    public const int View = 9;
-    public const int ViewSource = 10;
+    public const int Camera = 1;
+    public const int Direction = 2;
+    public const int Movement = 3;
+    public const int Player = 4;
+    public const int Position = 5;
+    public const int Rigidbody = 6;
+    public const int Rotation = 7;
+    public const int SyncModelPosition = 8;
+    public const int SyncViewPosition = 9;
+    public const int SyncViewRotation = 10;
+    public const int View = 11;
+    public const int ViewSource = 12;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
         "Arena",
+        "Camera",
         "Direction",
         "Movement",
         "Player",
         "Position",
+        "Rigidbody",
         "Rotation",
         "SyncModelPosition",
         "SyncViewPosition",
@@ -38,10 +42,12 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(ArenaComponent),
+        typeof(CameraComponent),
         typeof(DirectionComponent),
         typeof(MovementComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
+        typeof(RigidbodyComponent),
         typeof(RotationComponent),
         typeof(SyncModelPositionComponent),
         typeof(SyncViewPositionComponent),

@@ -7,7 +7,7 @@ namespace Assets.Scripts
     {
         private Entitas.Systems _systems;
 
-        private void Awake()
+        private void Start()
         {
             var contexts = new Contexts();
             _systems = new Entitas.Systems()
@@ -17,6 +17,7 @@ namespace Assets.Scripts
                 .Add(new ArenaStartupSystem(contexts))
                 .Add(new MovementSystem(contexts))
                 .Add(new RotationSystem(contexts))
+                .Add(new CameraControlSystem(contexts))
                 .Add(new SyncViewPositionSystem(contexts))
                 .Add(new SyncViewRotationSystem(contexts));
             _systems.Initialize();

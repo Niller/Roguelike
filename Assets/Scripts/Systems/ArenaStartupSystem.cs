@@ -18,6 +18,13 @@ namespace Assets.Scripts.Systems
         {
             GenerateMap(0);
             CreatePlayer();
+            CreateCamera();
+        }
+
+        private void CreateCamera()
+        {
+            var entity = _context.CreateEntity();
+            entity.AddCamera(Camera.main);
         }
 
         private void GenerateMap(int index)
@@ -41,7 +48,7 @@ namespace Assets.Scripts.Systems
 
             var arenaEntity = _context.CreateEntity();
             var rectSize = new Vector2(arena.Size.x * cellSize, arena.Size.y * cellSize);
-            arenaEntity.AddArena(arena, new Rect(-rectSize/2f - new Vector2(cellSize/2f, cellSize/2f), rectSize));
+            arenaEntity.AddArena(arena, new Rect(-rectSize/2f - new Vector2(cellSize/2f, cellSize/2f), rectSize), cellSize);
 
             for (var i = 0; i < arena.Cells.Length; i++)
             {
@@ -52,7 +59,7 @@ namespace Assets.Scripts.Systems
                 }
 
                 var obstacle = _context.CreateEntity();
-                var position = new Vector2Int(i % arena.Size.y, i / arena.Size.x);
+                var position = new Vector2Int(i % arena.Size.x, i / arena.Size.x);
                 obstacle.AddPosition(new Vector2(
                     position.x * cellSize - (arena.Size.x * arenaConfig.СellSize) / 2f, 
                     position.y * cellSize - (arena.Size.y * arenaConfig.СellSize) / 2f));

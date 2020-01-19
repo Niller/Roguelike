@@ -11,19 +11,21 @@ public partial class GameEntity {
     public ArenaComponent arena { get { return (ArenaComponent)GetComponent(GameComponentsLookup.Arena); } }
     public bool hasArena { get { return HasComponent(GameComponentsLookup.Arena); } }
 
-    public void AddArena(Assets.Scripts.Configs.Arena.ArenaData newArenaData, UnityEngine.Rect newRect) {
+    public void AddArena(Assets.Scripts.Configs.Arena.ArenaData newArenaData, UnityEngine.Rect newRect, float newCellSize) {
         var index = GameComponentsLookup.Arena;
         var component = (ArenaComponent)CreateComponent(index, typeof(ArenaComponent));
         component.ArenaData = newArenaData;
         component.Rect = newRect;
+        component.CellSize = newCellSize;
         AddComponent(index, component);
     }
 
-    public void ReplaceArena(Assets.Scripts.Configs.Arena.ArenaData newArenaData, UnityEngine.Rect newRect) {
+    public void ReplaceArena(Assets.Scripts.Configs.Arena.ArenaData newArenaData, UnityEngine.Rect newRect, float newCellSize) {
         var index = GameComponentsLookup.Arena;
         var component = (ArenaComponent)CreateComponent(index, typeof(ArenaComponent));
         component.ArenaData = newArenaData;
         component.Rect = newRect;
+        component.CellSize = newCellSize;
         ReplaceComponent(index, component);
     }
 

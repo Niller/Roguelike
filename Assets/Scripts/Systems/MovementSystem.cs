@@ -20,7 +20,7 @@ namespace Assets.Scripts.Systems
             {
                 if (!entity.movement.Move)
                 {
-                    entity.view.Value.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    entity.rigidbody.Value.velocity = Vector3.zero;
                     continue;
                 }
 
@@ -37,8 +37,7 @@ namespace Assets.Scripts.Systems
                 }
                 else
                 {
-                    //entity.view.Value.GetComponent<Rigidbody>().AddForce(new Vector3(newPosition.x, 0, newPosition.y));
-                    entity.view.Value.GetComponent<Rigidbody>().velocity = new Vector3(offset.x, 0, offset.y);
+                    entity.rigidbody.Value.velocity = new Vector3(offset.x, 0, offset.y);
                 }
 
             }
