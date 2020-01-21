@@ -66,6 +66,11 @@ namespace Assets.Scripts.Systems
                     playerPos = pos;
                 }
 
+                if (cell.Type == ArenaCellType.EnemySpawn)
+                {
+                    CreateEnemy(pos);
+                }
+
                 if (cell.Type != ArenaCellType.Obstacle)
                 {
                     continue;
@@ -80,6 +85,17 @@ namespace Assets.Scripts.Systems
             return playerPos;
         }
 
+        private void CreateEnemy(Vector2 pos)
+        {
+            var enemy = _context.CreateEntity();
+            enemy.AddViewSource(ViewType.MeleeEnemy);
+            enemy.AddPosition(pos);
+            enemy.AddRotation(0);
+            enemy.isSyncModelPosition = true;
+            //enemy.AddMovement(2f, false);
+            enemy.AddFraction(1);
+        }
+
         private void CreatePlayer(Vector2 pos)
         {
             var player = _context.CreateEntity();
@@ -91,6 +107,7 @@ namespace Assets.Scripts.Systems
             player.AddMovement(2f, false);
             player.AddDirection(Vector2.zero);
             player.isPlayer = true;
+            player.AddFraction(0);
         }
     }
 }

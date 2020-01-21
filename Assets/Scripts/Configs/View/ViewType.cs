@@ -4,6 +4,7 @@
     {
         Player,
         Map,
-        Obstacle
+        Obstacle,
+        MeleeEnemy
     }
 }

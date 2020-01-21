@@ -69,7 +69,21 @@ public class PlayerComponent : IComponent
 
 public class CameraComponent : IComponent
 {
-
     public Camera Camera;
+}
+
+public class FractionComponent : IComponent
+{
+    public int Fraction;
+}
+
+public class MeleeAttackComponent : IComponent
+{
+    public float Range;
+}
+
+public class MoveToTargetComponent : IComponent
+{
+
 }
 

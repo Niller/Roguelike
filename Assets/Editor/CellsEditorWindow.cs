@@ -62,6 +62,9 @@ public class CellsEditorWindow : EditorWindow
                 case ArenaCellType.Obstacle:
                     color = Color.gray;
                     break;
+                case ArenaCellType.EnemySpawn:
+                    color = Color.red;
+                    break;
             }
 
             if (color != null)

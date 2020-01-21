@@ -5,5 +5,6 @@
         Empty,
         PlayerSpawn,
         Obstacle,
+        EnemySpawn
     }
 }
