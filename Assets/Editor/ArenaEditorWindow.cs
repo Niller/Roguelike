@@ -27,11 +27,6 @@ public class ArenaEditorWindow : EditorWindow
         _window.titleContent = new GUIContent("Arena Editor", EditorGUIUtility.FindTexture("d_ViewToolOrbit On"));
     }
 
-    private void OnEnable()
-    {
-
-    }
-
     private void OnGUI()
     {
         EditorGUI.BeginChangeCheck();
@@ -49,8 +44,6 @@ public class ArenaEditorWindow : EditorWindow
                     _arenaIndexDisplays[i] = i.ToString();
                 }
             }
-
-            
         }
 
         if (_arenaConfig == null || _arenaConfig.Arenas.Length == 0)
