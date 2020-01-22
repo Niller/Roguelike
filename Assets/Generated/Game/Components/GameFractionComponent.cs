@@ -11,17 +11,19 @@ public partial class GameEntity {
     public FractionComponent fraction { get { return (FractionComponent)GetComponent(GameComponentsLookup.Fraction); } }
     public bool hasFraction { get { return HasComponent(GameComponentsLookup.Fraction); } }
 
-    public void AddFraction(int newFraction) {
+    public void AddFraction(int newFraction, int newEnemyFraction) {
         var index = GameComponentsLookup.Fraction;
         var component = (FractionComponent)CreateComponent(index, typeof(FractionComponent));
         component.Fraction = newFraction;
+        component.EnemyFraction = newEnemyFraction;
         AddComponent(index, component);
     }
 
-    public void ReplaceFraction(int newFraction) {
+    public void ReplaceFraction(int newFraction, int newEnemyFraction) {
         var index = GameComponentsLookup.Fraction;
         var component = (FractionComponent)CreateComponent(index, typeof(FractionComponent));
         component.Fraction = newFraction;
+        component.EnemyFraction = newEnemyFraction;
         ReplaceComponent(index, component);
     }
 

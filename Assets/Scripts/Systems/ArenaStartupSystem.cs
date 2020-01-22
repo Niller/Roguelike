@@ -3,12 +3,15 @@ using Client.Configs;
 using Client.Configs.View;
 using Entitas;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Assets.Scripts.Systems
 {
     public class ArenaStartupSystem : IInitializeSystem
     {
         private readonly GameContext _context;
+        private GameObject _mapInstance;
+
         public ArenaStartupSystem(Contexts contexts)
         {
             _context = contexts.game;
@@ -41,12 +44,12 @@ namespace Assets.Scripts.Systems
                 return playerPos;
             }
 
-            var instance = Object.Instantiate(prefab);
-            var currentScale = instance.transform.localScale;
+            _mapInstance = Object.Instantiate(prefab);
+            var currentScale = _mapInstance.transform.localScale;
             var sizeX = currentScale.x * cellSize * arena.Size.x;
             var sizeY = currentScale.z * cellSize * arena.Size.y;
-            instance.transform.localScale = new Vector3(sizeX, currentScale.y, sizeY);
-            instance.transform.position = new Vector3(-cellSize/2f, 0, -cellSize/2f);
+            _mapInstance.transform.localScale = new Vector3(sizeX, currentScale.y, sizeY);
+            _mapInstance.transform.position = new Vector3(-cellSize/2f, 0, -cellSize/2f);
 
             var arenaEntity = _context.CreateEntity();
             var rectSize = new Vector2(arena.Size.x * cellSize, arena.Size.y * cellSize);
@@ -80,7 +83,10 @@ namespace Assets.Scripts.Systems
                 
                 obstacle.AddPosition(pos);
                 obstacle.AddViewSource(ViewType.Obstacle);
+                obstacle.AddViewParent(_mapInstance.transform);
             }
+
+            _mapInstance.GetComponent<NavMeshSurface>().BuildNavMesh();
 
             return playerPos;
         }
@@ -93,7 +99,9 @@ namespace Assets.Scripts.Systems
             enemy.AddRotation(0);
             enemy.isSyncModelPosition = true;
             //enemy.AddMovement(2f, false);
-            enemy.AddFraction(1);
+            enemy.AddFraction(1, 0);
+            enemy.AddTarget(null);
+            enemy.isMoveToTarget = true;
         }
 
         private void CreatePlayer(Vector2 pos)
@@ -107,7 +115,7 @@ namespace Assets.Scripts.Systems
             player.AddMovement(2f, false);
             player.AddDirection(Vector2.zero);
             player.isPlayer = true;
-            player.AddFraction(0);
+            player.AddFraction(0, 1);
         }
     }
 }

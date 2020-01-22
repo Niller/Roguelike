@@ -15,17 +15,20 @@ public static class GameComponentsLookup {
     public const int MeleeAttack = 4;
     public const int Movement = 5;
     public const int MoveToTarget = 6;
-    public const int Player = 7;
-    public const int Position = 8;
-    public const int Rigidbody = 9;
-    public const int Rotation = 10;
-    public const int SyncModelPosition = 11;
-    public const int SyncViewPosition = 12;
-    public const int SyncViewRotation = 13;
-    public const int View = 14;
-    public const int ViewSource = 15;
+    public const int NavMeshAgent = 7;
+    public const int Player = 8;
+    public const int Position = 9;
+    public const int Rigidbody = 10;
+    public const int Rotation = 11;
+    public const int SyncModelPosition = 12;
+    public const int SyncViewPosition = 13;
+    public const int SyncViewRotation = 14;
+    public const int Target = 15;
+    public const int View = 16;
+    public const int ViewParent = 17;
+    public const int ViewSource = 18;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "Arena",
@@ -35,6 +38,7 @@ public static class GameComponentsLookup {
         "MeleeAttack",
         "Movement",
         "MoveToTarget",
+        "NavMeshAgent",
         "Player",
         "Position",
         "Rigidbody",
@@ -42,7 +46,9 @@ public static class GameComponentsLookup {
         "SyncModelPosition",
         "SyncViewPosition",
         "SyncViewRotation",
+        "Target",
         "View",
+        "ViewParent",
         "ViewSource"
     };
 
@@ -54,6 +60,7 @@ public static class GameComponentsLookup {
         typeof(MeleeAttackComponent),
         typeof(MovementComponent),
         typeof(MoveToTargetComponent),
+        typeof(NavMeshAgentComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(RigidbodyComponent),
@@ -61,7 +68,9 @@ public static class GameComponentsLookup {
         typeof(SyncModelPositionComponent),
         typeof(SyncViewPositionComponent),
         typeof(SyncViewRotationComponent),
+        typeof(TargetComponent),
         typeof(ViewComponent),
+        typeof(ViewParentComponent),
         typeof(ViewSourceComponent)
     };
 }

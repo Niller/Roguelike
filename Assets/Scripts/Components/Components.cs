@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Configs.Arena;
 using Client.Configs.View;
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+using UnityEngine.AI;
 using Vector2 = UnityEngine.Vector2;
 
 public class ViewComponent : IComponent
@@ -17,6 +19,11 @@ public class RigidbodyComponent : IComponent
 public class ViewSourceComponent : IComponent
 {
     public ViewType ViewType;
+}
+
+public class ViewParentComponent : IComponent
+{
+    public Transform Parent;
 }
 
 public class PositionComponent : IComponent
@@ -67,6 +74,11 @@ public class PlayerComponent : IComponent
 
 }
 
+public class NavMeshAgentComponent : IComponent
+{
+    public NavMeshAgent Agent;
+}
+
 public class CameraComponent : IComponent
 {
     public Camera Camera;
@@ -74,7 +86,9 @@ public class CameraComponent : IComponent
 
 public class FractionComponent : IComponent
 {
+    [EntityIndex]
     public int Fraction;
+    public int EnemyFraction;
 }
 
 public class MeleeAttackComponent : IComponent
@@ -87,3 +101,7 @@ public class MoveToTargetComponent : IComponent
 
 }
 
+public class TargetComponent : IComponent
+{
+    public GameEntity Value;
+}

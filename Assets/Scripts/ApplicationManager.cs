@@ -19,7 +19,9 @@ namespace Assets.Scripts
                 .Add(new RotationSystem(contexts))
                 .Add(new CameraControlSystem(contexts))
                 .Add(new SyncViewPositionSystem(contexts))
-                .Add(new SyncViewRotationSystem(contexts));
+                .Add(new SyncViewRotationSystem(contexts))
+                .Add(new ChooseTargetSystem(contexts))
+                .Add(new MoveToTargetSystem(contexts));
             _systems.Initialize();
         }
 

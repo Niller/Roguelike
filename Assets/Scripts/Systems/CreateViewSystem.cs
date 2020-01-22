@@ -2,6 +2,7 @@
 using Client.Configs;
 using Entitas;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Assets.Scripts.Systems
 {
@@ -41,6 +42,11 @@ namespace Assets.Scripts.Systems
 
                 var instance = Object.Instantiate(prefab);
 
+                if (entity.hasViewParent)
+                {
+                    instance.transform.SetParent(entity.viewParent.Parent);
+                }
+
                 if (entity.hasPosition)
                 {
                     instance.transform.position = new Vector3(entity.position.Value.x, 0, entity.position.Value.y);
@@ -55,6 +61,12 @@ namespace Assets.Scripts.Systems
                 if (rigidBody != null) 
                 {
                     entity.AddRigidbody(rigidBody);
+                }
+
+                var navMeshAgent = instance.GetComponent<NavMeshAgent>();
+                if (navMeshAgent != null)
+                {
+                    entity.AddNavMeshAgent(navMeshAgent);
                 }
 
                 entity.AddView(instance);
