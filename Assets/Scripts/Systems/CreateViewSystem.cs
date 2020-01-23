@@ -3,6 +3,7 @@ using Client.Configs;
 using Entitas;
 using UnityEngine;
 using UnityEngine.AI;
+using Object = UnityEngine.Object;
 
 namespace Assets.Scripts.Systems
 {

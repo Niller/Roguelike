@@ -21,7 +21,9 @@ namespace Assets.Scripts
                 .Add(new SyncViewPositionSystem(contexts))
                 .Add(new SyncViewRotationSystem(contexts))
                 .Add(new ChooseTargetSystem(contexts))
-                .Add(new MoveToTargetSystem(contexts));
+                .Add(new MoveToTargetSystem(contexts))
+                .Add(new UpdateHealthBarValueSystem(contexts.game))
+                .Add(new UpdateHealthBarPositionSystem(contexts));
             _systems.Initialize();
         }
 

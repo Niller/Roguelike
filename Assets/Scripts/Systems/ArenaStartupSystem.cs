@@ -101,7 +101,7 @@ namespace Assets.Scripts.Systems
             //enemy.AddMovement(2f, false);
             enemy.AddFraction(1, 0);
             enemy.AddTarget(null);
-            enemy.isMoveToTarget = true;
+            //enemy.isMoveToTarget = true;
         }
 
         private void CreatePlayer(Vector2 pos)
@@ -116,6 +116,7 @@ namespace Assets.Scripts.Systems
             player.AddDirection(Vector2.zero);
             player.isPlayer = true;
             player.AddFraction(0, 1);
+            player.AddHealth(100, 33);
         }
     }
 }

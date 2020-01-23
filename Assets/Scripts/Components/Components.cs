@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Configs.Arena;
+using Assets.Scripts.Gui;
 using Client.Configs.View;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
@@ -104,4 +105,15 @@ public class MoveToTargetComponent : IComponent
 public class TargetComponent : IComponent
 {
     public GameEntity Value;
+}
+
+public class HealthComponent : IComponent
+{
+    public int MaxHealth;
+    public int CurrentHealth;
+}
+
+public class HealthBarComponent : IComponent
+{
+    public HealthBarController HealthBar;
 }

@@ -5,6 +5,7 @@
         Player,
         Map,
         Obstacle,
-        MeleeEnemy
+        MeleeEnemy,
+        HealthBar
     }
 }
