@@ -24,7 +24,7 @@ namespace Assets.Scripts.Gui
 
         public void UpdatePosition(Transform target)
         {
-            Vector2 viewportPosition = Camera.main.WorldToViewportPoint(target.position);
+            Vector2 viewportPosition = Camera.main.WorldToViewportPoint(target.position + Vector3.forward*0.5f);
             var canvas = HudManager.Instance.GetComponent<RectTransform>();
             Vector2 proportionalPosition = new Vector2(viewportPosition.x * canvas.sizeDelta.x, viewportPosition.y * canvas.sizeDelta.y);
             GetComponent<RectTransform>().localPosition = proportionalPosition - uiOffset;

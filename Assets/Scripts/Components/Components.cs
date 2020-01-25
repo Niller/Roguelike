@@ -107,6 +107,11 @@ public class TargetComponent : IComponent
     public GameEntity Value;
 }
 
+public class TargetMarker : IComponent
+{
+    public GameEntity Target;
+}
+
 public class HealthComponent : IComponent
 {
     public int MaxHealth;

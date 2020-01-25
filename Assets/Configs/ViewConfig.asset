@@ -28,3 +28,6 @@ MonoBehaviour:
   - Type: 4
     GameObject: {fileID: 8947758625445503199, guid: bda36bb874d6f694081356eb1f33dcfe,
       type: 3}
+  - Type: 5
+    GameObject: {fileID: 3009278438023843134, guid: 6389c61fd2ade564fb6dce3ac12c5a39,
+      type: 3}

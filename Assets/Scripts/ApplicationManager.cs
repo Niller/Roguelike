@@ -20,10 +20,17 @@ namespace Assets.Scripts
                 .Add(new CameraControlSystem(contexts))
                 .Add(new SyncViewPositionSystem(contexts))
                 .Add(new SyncViewRotationSystem(contexts))
-                .Add(new ChooseTargetSystem(contexts))
+                .Add(new FindChooseTargetSystem(contexts))
                 .Add(new MoveToTargetSystem(contexts))
+                //HealthBar Feature
+                .Add(new CreateHealthBarSystem(contexts.game))
                 .Add(new UpdateHealthBarValueSystem(contexts.game))
-                .Add(new UpdateHealthBarPositionSystem(contexts));
+                .Add(new UpdateHealthBarPositionSystem(contexts))
+                //Player target Feature
+                .Add(new UpdatePlayerTargetSystem(contexts.game))
+                .Add(new UpdatePlayerTargetViewSystem(contexts));
+
+
             _systems.Initialize();
         }
 

@@ -6,6 +6,7 @@
         Map,
         Obstacle,
         MeleeEnemy,
-        HealthBar
+        HealthBar,
+        TargetMarker
     }
 }

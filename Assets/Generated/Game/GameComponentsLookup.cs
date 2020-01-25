@@ -26,11 +26,12 @@ public static class GameComponentsLookup {
     public const int SyncViewPosition = 15;
     public const int SyncViewRotation = 16;
     public const int Target = 17;
-    public const int View = 18;
-    public const int ViewParent = 19;
-    public const int ViewSource = 20;
+    public const int TargetMarker = 18;
+    public const int View = 19;
+    public const int ViewParent = 20;
+    public const int ViewSource = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "Arena",
@@ -51,6 +52,7 @@ public static class GameComponentsLookup {
         "SyncViewPosition",
         "SyncViewRotation",
         "Target",
+        "TargetMarker",
         "View",
         "ViewParent",
         "ViewSource"
@@ -75,6 +77,7 @@ public static class GameComponentsLookup {
         typeof(SyncViewPositionComponent),
         typeof(SyncViewRotationComponent),
         typeof(TargetComponent),
+        typeof(TargetMarker),
         typeof(ViewComponent),
         typeof(ViewParentComponent),
         typeof(ViewSourceComponent)

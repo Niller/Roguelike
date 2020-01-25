@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Assets.Scripts.Gui;
-using Client.Configs;
-using Client.Configs.View;
+﻿using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Assets.Scripts.Systems
 {
@@ -26,27 +20,13 @@ namespace Assets.Scripts.Systems
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return entity.hasHealthBar;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var gameEntity in entities)
             {
-                if (!gameEntity.hasHealthBar)
-                {
-                    if (ConfigsManager.Instance.ViewConfig.GetValue(ViewType.HealthBar, out var gameObject))
-                    {
-                        var healthBar = Object.Instantiate(gameObject, HudManager.Instance.transform).GetComponent<HealthBarController>();
-                        gameEntity.AddHealthBar(healthBar);
-                    }
-                    else
-                    {
-                        continue;
-                    }
-
-                }
-
                 gameEntity.healthBar.HealthBar.UpdateValues(gameEntity.health);
             }
         }
