@@ -74,6 +74,8 @@ namespace Assets.Scripts.Systems
                     CreateEnemy(pos);
                 }
 
+                //continue;
+
                 if (cell.Type != ArenaCellType.Obstacle)
                 {
                     continue;
@@ -100,7 +102,7 @@ namespace Assets.Scripts.Systems
             enemy.isSyncModelPosition = true;
             //enemy.AddMovement(2f, false);
             enemy.AddFraction(1, 0);
-            enemy.AddTarget(null);
+            //enemy.AddTarget(null);
             //enemy.isMoveToTarget = true;
         }
 
@@ -117,6 +119,7 @@ namespace Assets.Scripts.Systems
             player.isPlayer = true;
             player.AddFraction(0, 1);
             player.AddHealth(100, 33);
+            player.AddTarget(null);
         }
     }
 }

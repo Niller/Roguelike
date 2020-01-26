@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.Systems
 {
-    public class FindChooseTargetSystem : IExecuteSystem
+    public class FindTargetSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _hasTargetGroup;
         private readonly GameContext _gameContext;
 
-        public FindChooseTargetSystem(Contexts contexts)
+        public FindTargetSystem(Contexts contexts)
         {
             _gameContext = contexts.game;
             _hasTargetGroup = contexts.game.GetGroup(GameMatcher.Target);
@@ -38,7 +38,10 @@ namespace Assets.Scripts.Systems
                     target = possibleTarget;
                 }
 
-                entity.ReplaceTarget(target);
+                if (entity.target.Value != target)
+                {
+                    entity.ReplaceTarget(target);
+                }
             }
         }
     }

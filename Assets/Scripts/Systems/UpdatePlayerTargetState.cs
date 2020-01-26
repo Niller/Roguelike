@@ -22,7 +22,7 @@ namespace Assets.Scripts.Systems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Target);
+            return context.CreateCollector(GameMatcher.Target.AddedOrRemoved());
         }
 
         protected override bool Filter(GameEntity entity)
